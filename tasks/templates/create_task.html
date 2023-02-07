@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+{% block title %} Creacion de tareas {%endblock%}
+{% block content %}
+<h1>Creacion de Tareas</h1>
+{{error}}
+<form action="/task/create/" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        enviar
+    </button>
+</form>
+{% endblock %}

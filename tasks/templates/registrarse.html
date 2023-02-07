@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<title> {% block title %} Registrarse {% endblock %}</title>
+<h1>HOLA DEV</h1>
+<h2>estas en portal de creacion de usuario</h2>
+{{error}}
+
+<form method="post">
+    {% comment %} token de seguridad para evitar suplantaciones {% endcomment %}
+    {% csrf_token %} 
+    {% comment %} creamos formulario por defecto de django pero lo dejamos bajo etiquetas P .as_p {% endcomment %}
+    {{form.as_p}}
+
+    <button type="submit">enviar</button>
+</form>
+
+</body>
+</html>
+{% endblock %}

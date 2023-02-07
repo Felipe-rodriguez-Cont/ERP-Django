@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<title> {% block title %} Tareas Pendientes {% endblock %}</title>
+<body>
+    <h1>Tareas Pendientes</h1>
+    <ul>
+        {% for task in task  %}
+        <a href="{% url 'task_detail' task.id %}">
+            <li>
+                {%if task.important%}
+                    <b>Titulo: </b>{{task.title}}
+                {% else %}
+                    {{task.title}}
+                {% endif %}
+                <p><b>Descripcion:</b> {{task.description}}</p>
+                <p><b>Usuario Creador:</b> {{task.user.username}}</p>
+            </li>
+        </a>
+    
+        {% endfor %}
+    </ul>
+{% endblock %}
+
